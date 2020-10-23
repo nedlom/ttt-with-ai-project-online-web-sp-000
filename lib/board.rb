@@ -19,10 +19,13 @@ class Board
     puts "-----------"
     puts " #{cells[6]} | #{cells[7]} | #{cells[8]} "
   end
+  
+  def input_to_index(input)
+    input.to_i - 1
+  end
 
   def position(input)
-    index = input.to_i - 1
-    cells[index]
+    cells[input_to_index(input)]
   end
   
   def full?
@@ -42,8 +45,7 @@ class Board
   end
   
   def update(input, player)
-    index = input.to_i - 1
-    cells[index] = player.token
+    cells[input_to_index(input)] = player.token
   end
   
 end

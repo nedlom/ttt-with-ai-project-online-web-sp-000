@@ -26,9 +26,13 @@ class Game
   
   def won?
     WIN_COMBINATIONS.find do |combo|
-      a = board.position(combo[0]+1)
-      b = board.position(combo[1]+1)
-      c = board.position(combo[2]+1)
+      # a = board.position(combo[0]+1)
+      # b = board.position(combo[1]+1)
+      # c = board.position(combo[2]+1)
+      #binding.pry
+      a = board.cells[combo[0]]
+      b = board.cells[combo[1]]
+      c = board.cells[combo[2]]
       x_win = a == "X" && b == "X" && c == "X"
       o_win = a == "O" && b == "O" && c == "O"
       x_win || o_win
@@ -60,6 +64,7 @@ class Game
   def play
     while !over?
       turn
+      puts ""
     end
     won? ? (puts "Congratulations #{winner}!") : (puts "Cat's Game!")
   end
