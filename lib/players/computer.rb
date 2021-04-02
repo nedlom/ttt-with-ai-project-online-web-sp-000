@@ -11,18 +11,23 @@ module Players
         winning_cells.count(opponent_token) == 2 && winning_cells.count(" ") == 1
       end   
       
-      near_win = Game.wins.detect do |win|
       open_corner = [0, 2, 6, 8].detect {|i| board.cells[i] == " "}
       
       if near_win
         near_win.index(" ") + 1
-      elsif board.cells[]
-        near_win.dectect {|
-      
+      elsif board.cells[4] == " "
+        5
+      elsif open_corner
+        open_corner + 1
+      else
+        rand(1..9)
+      end
+    end
+        
         
       
         
-         if !x.nil?
+        # if !x.nil?
       #   x.detect {|i| board.cells[i] == " "} + 1
       # elsif board.cells[4] == " "
       #   5.to_s
@@ -68,7 +73,7 @@ module Players
       # else
       #   rand(1..9)
       # end
-    end
+    # end
   end
 end
 
