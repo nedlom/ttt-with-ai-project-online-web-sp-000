@@ -55,7 +55,7 @@ class Game
   end
   
   def turn
-    puts "Enter: "
+    print "Enter cells number you want to fill: "
     x = current_player.move(board)
     if !board.valid_move?(x)
       turn
