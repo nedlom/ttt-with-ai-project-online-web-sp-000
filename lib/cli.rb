@@ -42,6 +42,7 @@ class CLI
      print "Would you like to go first(y/n)? "
      x = gets.strip
      if x == "y"
+       puts "You are X"
        human = Players::Human.new("X")
        computer = Players::Computer.new("O")
        tic_tac_toe = Game.new(human, computer)
