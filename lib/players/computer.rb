@@ -2,7 +2,6 @@ require 'pry'
 module Players
 
   class Computer < Player
-    
     attr_reader :winning_cells
     
     def move(board)
@@ -19,7 +18,7 @@ module Players
       
       binding.pry
       if near_win
-        winning_cells.index(" ") + 1
+        near_win[winning_cells.index(" ")] + 1
       elsif board.cells[4] == " "
         5
       elsif open_corner
