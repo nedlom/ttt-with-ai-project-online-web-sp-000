@@ -55,6 +55,7 @@ class Game
   end
   
   def turn
+    puts "Enter: "
     x = current_player.move(board)
     if !board.valid_move?(x)
       turn
