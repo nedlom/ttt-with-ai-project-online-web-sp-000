@@ -5,6 +5,10 @@ class Game
   
   @@all = []
   
+  def self.all
+    @@all
+  end
+  
   WIN_COMBINATIONS = [
     [0,1,2],
     [3,4,5],
@@ -20,15 +24,11 @@ class Game
     WIN_COMBINATIONS
   end
   
-  def self.all
-    @@all
-  end
-  
   def initialize(player_1=Players::Human.new("X"), player_2=Players::Human.new("O"), board=Board.new)
     @player_1 = player_1
     @player_2 = player_2
     @board = board
-    Game.all << self
+    # Game.all << self
   end
   
   def current_player
