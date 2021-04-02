@@ -4,8 +4,19 @@ class CLI
   
   def start
     puts "Welcome to Tic Tac Toe"
+    tutorial
     print "Enter number of players (0, 1, or 2) or wargames: "
     player_input
+  end
+  
+  def tutorial
+    puts "The board is labelled as follows:", " "
+    puts " 1 | 2 | 3 "
+    puts "-----------"
+    puts " 4 | 5 | 6 "
+    puts "-----------"
+    puts " 7 | 8 | 9 "
+    puts " ", "You will enter a number 1-9 for the cell you want fill.", " "
   end
   
   def player_input
