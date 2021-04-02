@@ -18,7 +18,7 @@ module Players
       binding.pry
       
       if near_win
-        near_win.index(" ") + 1
+        winning_cells.index(" ") + 1
       elsif board.cells[4] == " "
         5
       elsif open_corner
