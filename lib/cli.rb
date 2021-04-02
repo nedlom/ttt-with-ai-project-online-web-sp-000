@@ -4,16 +4,27 @@ class CLI
   
   def start
     puts "Welcome to Tic Tac Toe"
+    tutorial
+    print "Enter number of players (0, 1, or 2) or wargames: "
     player_input
   end
   
+  def tutorial
+    puts "The board is labelled as follows:", " "
+    puts " 1 | 2 | 3 "
+    puts "-----------"
+    puts " 4 | 5 | 6 "
+    puts "-----------"
+    puts " 7 | 8 | 9 "
+    puts " ", "You will enter a number 1-9 for the cell you want fill.", " "
+  end
+  
   def player_input
-    print "Enter number of players (0, 1, or 2) or wargames: "
     self.players = gets.strip
     if players == "0" || players == "1" || players == "2" || players == "wargames"
       game
     else
-      puts "Invalid input."
+      puts "Invalid input.",""
       start
     end
   end
@@ -27,9 +38,11 @@ class CLI
     end
     
     if players == "1"
+     puts "The board is currently empty"
      print "Would you like to go first(y/n)? "
      x = gets.strip
      if x == "y"
+       puts "You are X. Select a cell number to fill"
        human = Players::Human.new("X")
        computer = Players::Computer.new("O")
        tic_tac_toe = Game.new(human, computer)

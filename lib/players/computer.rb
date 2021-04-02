@@ -2,31 +2,26 @@ require 'pry'
 module Players
 
   class Computer < Player
+    attr_reader :winning_cells
     
     def move(board)
+      opponent_token = Player.all.detect {|p| p != self}.token
       
-      computer = self.token
-      player = ""
-      computer == "X" ? player = "O" : player = "X"
+      near_win = Game.wins.detect do |win|
+        @winning_cells = [board.cells[win[0]], board.cells[win[1]], board.cells[win[2]]]
+        winning_cells.count(opponent_token) == 2 && winning_cells.count(" ") == 1
+      end   
       
-      x = Game.wins.detect do |win|
-        a = win[0]
-        b = win[1]
-        c = win[2]
-        d = [board.cells[a], board.cells[b], board.cells[c]]
-        d.count(player) == 2 && d.count(" ") == 1
-      end
+      open_corner = [0, 2, 6, 8].detect {|i| board.cells[i] == " "}
       
-      y = [0, 2, 6, 8].detect {|i| board.cells[i] == " "}
-      
-      if !x.nil?
-        x.detect {|i| board.cells[i] == " "} + 1
+      if near_win
+        near_win[winning_cells.index(" ")] + 1.to_s
       elsif board.cells[4] == " "
         5.to_s
-      elsif !y.nil?
-        y + 1
+      elsif open_corner
+        open_corner + 1.to_s
       else
-        rand(1..9)
+        rand(1..9).to_s
       end
     end
   end

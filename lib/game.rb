@@ -3,6 +3,12 @@ class Game
   
   attr_accessor :board, :player_1, :player_2
   
+  @@all = []
+  
+  def self.all
+    @@all
+  end
+  
   WIN_COMBINATIONS = [
     [0,1,2],
     [3,4,5],
@@ -22,6 +28,7 @@ class Game
     @player_1 = player_1
     @player_2 = player_2
     @board = board
+    # Game.all << self
   end
   
   def current_player
