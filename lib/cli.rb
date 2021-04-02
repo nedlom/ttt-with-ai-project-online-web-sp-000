@@ -42,7 +42,7 @@ class CLI
      print "Would you like to go first(y/n)? "
      x = gets.strip
      if x == "y"
-       puts "You are X"
+       puts "You are X. Select a cell number to fill"
        human = Players::Human.new("X")
        computer = Players::Computer.new("O")
        tic_tac_toe = Game.new(human, computer)
