@@ -5,6 +5,7 @@ module Players
     
     
     def move(board)
+      binding.pry
       
       computer = self.token
       player = ""
