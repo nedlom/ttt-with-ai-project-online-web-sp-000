@@ -38,6 +38,8 @@ class CLI
     end
     
     if players == "1"
+     puts "The board is currently empty"
+     Board.display
      print "Would you like to go first(y/n)? "
      x = gets.strip
      if x == "y"
