@@ -5,7 +5,6 @@ module Players
     
     
     def move(board)
-      binding.pry
       
       opponent_token = Player.all.detect {|p| p != self}.token
       binding.pry
@@ -27,7 +26,7 @@ module Players
         # board.cells is the game_board_array 
         #d is the sub_array of the game_board_array
         winning_cells = [board.cells[win[0]], board.cells[win[1]], board.cells[win[2]]]
-        d.count(player) == 2 && d.count(" ") == 1
+        d.count(opponent_token) == 2 && d.count(" ") == 1
       end
       
       binding.pry
