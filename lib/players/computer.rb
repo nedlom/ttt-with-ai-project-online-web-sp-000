@@ -17,11 +17,11 @@ module Players
       if near_win
         near_win[winning_cells.index(" ")] + 1.to_s
       elsif board.cells[4] == " "
-        5
+        5.to_s
       elsif open_corner
-        open_corner + 1
+        open_corner + 1.to_s
       else
-        rand(1..9)
+        rand(1..9).to_s
       end
     end
         
