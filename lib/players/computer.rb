@@ -7,9 +7,12 @@ module Players
     def move(board)
       binding.pry
       
-      computer = self.token
-      player = ""
-      computer == "X" ? player = "O" : player = "X"
+      opponent_token = Player.all.detect {|p| p != self}.token
+      binding.pry
+      
+      # computer = self.token
+      # player = ""
+      # computer == "X" ? player = "O" : player = "X"
       
       #this detects a near win from player
       # checks win combos on board
