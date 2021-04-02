@@ -29,7 +29,7 @@ module Players
         d.count(opponent_token) == 2 && d.count(" ") == 1
       end
       
-      binding.pry
+      # binding.pry
       
       #detects an open corner on the TTT board
       open_corner = [0, 2, 6, 8].detect {|i| board.cells[i] == " "}
