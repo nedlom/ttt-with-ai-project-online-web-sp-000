@@ -3,21 +3,33 @@ module Players
 
   class Computer < Player
     
+    
     def move(board)
       
       computer = self.token
       player = ""
       computer == "X" ? player = "O" : player = "X"
       
+      #this detects a near win from player
+      # checks win combos on board
+      # if player is near win
+      # returns that combo
+      # and assigns it to variable x
       x = Game.wins.detect do |win|
-        a = win[0]
-        b = win[1]
-        c = win[2]
-        d = [board.cells[a], board.cells[b], board.cells[c]]
+        #these are the winning indices in the array
+        # a = win[0]
+        # b = win[1]
+        # c = win[2]
+        # board.cells is the game_board_array 
+        #d is the sub_array of the game_board_array
+        winning_cells = [board.cells[win[0]], board.cells[win[1]], board.cells[win[2]]]
         d.count(player) == 2 && d.count(" ") == 1
       end
       
-      y = [0, 2, 6, 8].detect {|i| board.cells[i] == " "}
+      binding.pry
+      
+      #detects an open corner on the TTT board
+      open_corner = [0, 2, 6, 8].detect {|i| board.cells[i] == " "}
       
       if !x.nil?
         x.detect {|i| board.cells[i] == " "} + 1

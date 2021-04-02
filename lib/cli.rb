@@ -4,16 +4,16 @@ class CLI
   
   def start
     puts "Welcome to Tic Tac Toe"
+    print "Enter number of players (0, 1, or 2) or wargames: "
     player_input
   end
   
   def player_input
-    print "Enter number of players (0, 1, or 2) or wargames: "
     self.players = gets.strip
     if players == "0" || players == "1" || players == "2" || players == "wargames"
       game
     else
-      puts "Invalid input."
+      puts "Invalid input.",""
       start
     end
   end
