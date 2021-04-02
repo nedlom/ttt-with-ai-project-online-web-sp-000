@@ -3,9 +3,7 @@ module Players
 
   class Computer < Player
     
-    
     def move(board)
-      
       opponent_token = Player.all.detect {|p| p != self}.token
       
       near_win = Game.wins.detect do |win|
@@ -13,8 +11,26 @@ module Players
         winning_cells.count(opponent_token) == 2 && winning_cells.count(" ") == 1
       end   
       
+      near_win = Game.wins.detect do |win|
+      open_corner = [0, 2, 6, 8].detect {|i| board.cells[i] == " "}
       
-      binding.pry
+      if near_win
+        near_win.dectect {|
+      
+        
+      
+        
+         if !x.nil?
+      #   x.detect {|i| board.cells[i] == " "} + 1
+      # elsif board.cells[4] == " "
+      #   5.to_s
+      # elsif !y.nil?
+      #   y + 1
+      # else
+      #   rand(1..9)
+      # end
+        
+        
       
       # computer = self.token
       # player = ""
@@ -39,7 +55,7 @@ module Players
       # binding.pry
       
       #detects an open corner on the TTT board
-      open_corner = [0, 2, 6, 8].detect {|i| board.cells[i] == " "}
+      # open_corner = [0, 2, 6, 8].detect {|i| board.cells[i] == " "}
       
       # if !x.nil?
       #   x.detect {|i| board.cells[i] == " "} + 1
