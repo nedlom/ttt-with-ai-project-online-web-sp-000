@@ -15,7 +15,7 @@ module Players
       open_corner = [0, 2, 6, 8].detect {|i| board.cells[i] == " "}
       # binding.pry
       if near_win
-        near_win[winning_cells.index(" ")] + 1
+        near_win[winning_cells.index(" ")] + 1.to_s
       elsif board.cells[4] == " "
         5
       elsif open_corner
