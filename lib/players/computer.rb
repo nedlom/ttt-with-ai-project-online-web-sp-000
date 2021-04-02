@@ -17,6 +17,7 @@ module Players
       
       # binding.pry
       
+      binding.pry
       if near_win
         winning_cells.index(" ") + 1
       elsif board.cells[4] == " "
